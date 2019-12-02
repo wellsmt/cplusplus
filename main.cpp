@@ -2,6 +2,7 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    constexpr int VALUE = 17;
+    std::cout << "Hello World! \n" << VALUE << std::endl;
     return 0;
 }
