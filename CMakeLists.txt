@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 2.4)
-
-project(hello_world)
+cmake_policy(SET CMP0048 NEW)
+project(sandbox)
 
 enable_testing()
 find_package(GTest REQUIRED)
 
-add_executable(app main.cpp)
-add_executable(app_test test.cpp)
+if(COMMAND cmake_policy)
+    cmake_policy(SET CMP0003 NEW)
+endif(COMMAND cmake_policy)
 
-target_link_libraries(app_test GTest::GTest GTest::Main)
-add_test(AllTests app_test)
+add_subdirectory(application)
+add_subdirectory(library)
