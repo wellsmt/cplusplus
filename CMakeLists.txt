@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 2.4)
 cmake_policy(SET CMP0048 NEW)
 project(sandbox)
-
+set(PYTHON_INCLUDE_DIRS /usr/include/python3.7m/)
+set(LIBPYTHON_VERSION 3.7)
 enable_testing()
 find_package(GTest REQUIRED)
+find_package(pybind11 REQUIRED)
+find_package(PythonInterp)
+find_package(PythonLibs)
 
 if(COMMAND cmake_policy)
     cmake_policy(SET CMP0003 NEW)

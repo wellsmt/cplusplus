@@ -1,8 +1,9 @@
+cmake_policy(SET CMP0048 NEW)
 project(histogram VERSION 1.0.0 DESCRIPTION "letter histogram count")
 
 add_library(histogram SHARED
     src/histogram.cpp)
-
+pybind11_add_module(example src/example.cpp)
 add_executable(histogram_test test/histogram_test.cpp)
 target_link_libraries(histogram_test histogram GTest::GTest GTest::Main pthread)
 add_test(histogram_test histogram_test)
